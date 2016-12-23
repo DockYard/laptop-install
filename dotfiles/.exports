@@ -1,0 +1,5 @@
+# use Vim as editor
+export VISUAL=vim
+export EDITOR=$VISUAL
+
+[[ -f ~/.exports.local ]] && source ~/.exports.local

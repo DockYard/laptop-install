@@ -1,0 +1,132 @@
+[alias]
+
+  a = add
+  aa = add .
+  ap = add --patch
+
+  s = status
+  st = status
+
+  c = commit -m
+  ca = commit --amend --reuse-message=HEAD
+
+  fix = commit --fixup
+
+  co = checkout
+  cn = checkout -b
+  fb = checkout -b
+  rmb = branch -D
+
+  pf = push -f
+
+  cp = cherry-pick
+
+  d = diff
+  dc = diff --cached
+  dl = diff HEAD^
+  dt = difftool
+
+  l = log --pretty=oneline -n25 --graph --abbrev-commit --date=short
+  ll = log --pretty=format:'%C(yellow)%h%Creset - %s %Cred%d%Creset %Cgreen(%cd)%Creset <%cE>' -n25 --graph --color --abbrev-commit --date=format:'%y-%m-%d %H:%M:%S'
+  ld = log --no-merges --pretty=format:'%C(yellow)%h%Creset %cd %Cgreen(%cr)%Creset | %an | %s' --date=format:'%d-%m-%y %H:%M'
+
+  dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+
+  m = merge
+  mm = merge --no-ff
+
+  fa = fetch --all
+
+  ri = rebase --interactive
+  rc = rebase --continue
+  rs = rebase --skip
+  ra = rebase --abort
+
+  rbm = rebase master
+
+  tags = tag -l
+  branches = branch -a
+  remotes = remote -v
+  stashes = stash list
+
+  ss = stash
+  sp = stash pop
+
+  contributors = shortlog --summary --numbered
+
+  pr = "!hub pull-request"
+
+[push]
+
+  default = current
+
+[apply]
+
+  # Detect whitespace errors when applying a patch
+  whitespace = fix
+
+[core]
+
+  editor=vim
+
+  # Use custom `.gitignore` and `.gitattributes`
+  excludesfile = ~/.gitignore
+  attributesfile = ~/.gitattributes
+
+  # Treat spaces before tabs and all kinds of trailing whitespace as an error
+  # [default] trailing-space: looks for spaces at the end of a line
+  # [default] space-before-tab: looks for spaces before tabs at the beginning of a line
+  whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+
+  # Make `git rebase` safer on OS X
+  # More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+  trustctime = false
+
+  # Prevent showing files whose names contain non-ASCII symbols as unversioned.
+  # http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
+  precomposeunicode = false
+
+  autocrlf = input
+
+[color]
+
+  # Use colors in Git commands that are capable of colored output when
+  # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
+  ui = auto
+
+[color "branch"]
+
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+[color "diff"]
+
+  meta = yellow bold
+  frag = magenta bold # line info
+  old = red # deletions
+  new = green # additions
+
+[color "status"]
+
+  added = yellow
+  changed = green
+  untracked = cyan
+
+[merge]
+
+  log = true
+  verbosity = 1
+  ff = only
+
+[fetch]
+
+  prune = true
+
+[diff]
+
+  # Detect copies as well as renames
+  renames = copies
+
+[include]
+  path = ~/.gitconfig.local

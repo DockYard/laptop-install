@@ -1,0 +1,7 @@
+--ignore-dir=log/
+--ignore-dir=tmp/
+--ignore-dir=vendor/
+--ignore-dir=dist/
+--ignore-dir=bower_components/
+--ignore-dir=node_modules/
+--ignore-dir=fastboot-dist/
