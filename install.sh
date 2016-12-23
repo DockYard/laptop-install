@@ -16,7 +16,7 @@ read -p "What is your email address? (e.g. johnny.appleseed@dockyard.com): " ema
 
 fancy_echo "Hello $full_name <$email_address>"
 
-fancy_echo "Press any key to start the installation process, press <CTRL + C> to cancel"
+fancy_echo "Press enter to start the installation process, press <CTRL + C> to cancel"
 read
 
 if [ -f ~/.ssh/id_rsa ]
