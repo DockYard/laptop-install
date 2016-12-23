@@ -5,6 +5,7 @@ fancy_echo() {
 
 fancy_echo "This script will setup your laptop"
 fancy_echo "If you want to reuse your old SSH key, copy your SSH config over before running this script"
+fancy_echo "During installation, it will ask for your sudo password a few times"
 
 # Get name and email
 fancy_echo "Before we start we need some basic details of you"
@@ -15,10 +16,6 @@ fancy_echo "Hello $full_name <$email_address>"
 
 fancy_echo "Press any key to start the installation process, press <CTRL + C> to cancel"
 read
-
-fancy_echo "We need your sudo password to do a few things"
-sudo -v
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 if [ -f ~/.ssh/id_rsa ]
 then
