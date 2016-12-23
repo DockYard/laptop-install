@@ -31,9 +31,6 @@ fi
 cat ~/.ssh/id_rsa.pub | pbcopy
 fancy_echo "\nCopyied public key to clipboard, please add it to your Github account."
 
-fancy_echo "Installing ZSH"
-git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh >> out.log 2>&1
-
 copy_dotfile() {
   if [ -f ~/${1} ]
   then
@@ -87,6 +84,10 @@ brew bundle --file=~/Brewfile >> out.log 2>&1
 yarn_install() {
   yarn global add "$@" >> out.log 2>&1
 }
+
+fancy_echo "Installing OH-MY-ZSH"
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh >> out.log 2>&1
+
 
 fancy_echo "Installing global Node packages with Yarn"
 yarn_install 'bower'
