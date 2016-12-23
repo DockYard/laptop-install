@@ -10,7 +10,6 @@ alias -- -="cd -"
 alias p="cd ~/Projects"
 
 # Aliases
-alias g="git"
 alias h="history"
 alias j="jobs"
 alias e='$EDITOR'
