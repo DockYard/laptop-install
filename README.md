@@ -82,7 +82,7 @@ The following dotfiles are set up:
   * `.exports` for exports
   * `.editorconfig` for editor defaults
   * `.gitconfig` your default git config, complete with your name and email
-  * `.gitignore` a global ingore file for git
+  * `.gitignore` a global ignore file for git
   * `.tmux.conf` a basic setup for tmux
   * `.vimrc` a basic Vim setup, including basic Vim plugins
   * `.zshrc` a basic ZSH setup, including OH-MY-ZSH
