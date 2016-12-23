@@ -85,7 +85,6 @@ yarn_install() {
 fancy_echo "Installing OH-MY-ZSH"
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh >> out.log 2>&1
 
-
 fancy_echo "Installing global Node packages with Yarn"
 yarn_install 'bower'
 yarn_install 'phantomjs'
