@@ -1,14 +1,11 @@
-let iCanHazNeoBundle=1
-let neobundle_readme=expand($HOME.'/.vim/bundle/neobundle.vim/README.md')
-if !filereadable(neobundle_readme)
-    echo "Installing NeoBundle.."
-    echo ""
-    silent !mkdir -p $HOME/.vim/bundle
-    silent !git clone https://github.com/Shougo/neobundle.vim $HOME/.vim/bundle/neobundle.vim
-    let iCanHazNeoBundle=0
+if 0 | endif
+
+if &compatible
+  set nocompatible
 endif
+
 if has('vim_starting')
-    set rtp+=$HOME/.vim/bundle/neobundle.vim/
+    set runtimepath+=$HOME/.vim/bundle/neobundle.vim/
 endif
 
 call neobundle#begin(expand($HOME.'/.vim/bundle'))
@@ -44,6 +41,8 @@ call neobundle#end()
 filetype  plugin on
 filetype  indent on
 syntax on
+
+NeoBundleCheck
 
 colorscheme default
 

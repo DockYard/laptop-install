@@ -101,7 +101,9 @@ mix local.hex --force >> out.log 2>&1
 mix archive.install --force https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez >> out.log 2>&1
 
 fancy_echo "Installing Vim plugins"
-vim +NeoBundleInstall +qall >> out.log 2>&1
+mkdir -p ~/.vim/bundle >> out.log 2>&1
+git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+. ~/.vim/bundle/neobundle.vim/bin/neoinstall >> out.log 2>&1
 
 fancy_echo "Configuring name and email in .gitconfig"
 git config --global user.name "$full_name"
