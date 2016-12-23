@@ -20,7 +20,6 @@ brew 'postgresql'
 brew 'redis'
 brew 'ctags'
 brew 'libyaml'
-brew 'heroku-toolbelt'
 brew 'zsh'
 
 cask 'google-chrome'
