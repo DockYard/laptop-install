@@ -32,7 +32,7 @@ cat ~/.ssh/id_rsa.pub | pbcopy
 fancy_echo "\nCopyied public key to clipboard, please add it to your Github account."
 
 fancy_echo "Installing ZSH"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" >> out.log 2>&1
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh >> out.log 2>&1
 
 copy_dotfile() {
   if [ -f ~/${1} ]
@@ -82,7 +82,7 @@ fi
 
 brew tap Homebrew/bundle >> out.log 2>&1
 fancy_echo "Installing Brew packages"
-brew bundle check >> out.log 2>&1
+brew bundle --file=~/Brewfile >> out.log 2>&1
 
 yarn_install() {
   yarn global add "$@" >> out.log 2>&1

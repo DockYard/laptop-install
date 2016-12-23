@@ -13,23 +13,17 @@ endif
 
 call neobundle#begin(expand($HOME.'/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/neocomplcache.vim'
-NeoBundle 'bkad/CamelCaseMotion'
 NeoBundle 'bling/vim-airline'
-NeoBundle 'vim-airline/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
-NeoBundle 'croaky/vim-colors-github'
+NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'elixir-lang/vim-elixir'
-NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'pbrisbin/vim-mkdir'
-NeoBundle 'rust-lang/rust.vim'
+NeoBundle 'rking/ag.vim'
+NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'ternjs/tern_for_vim'
-NeoBundle 'thoughtbot/vim-rspec'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
@@ -37,13 +31,21 @@ NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'vim-scripts/tComment'
+
+if filereadable($HOME . "/.vimrc.bundles.local")
+  source ~/.vimrc.bundles.local
+endif
+
 call neobundle#end()
 
 filetype  plugin on
 filetype  indent on
 syntax on
+
+colorscheme default
 
 set autoindent                         " Copy indent from current line
 set autoread                           " Read open files again when changed outside Vim
@@ -75,6 +77,7 @@ set hidden                             " Don't unload the buffer when we switch 
 set visualbell                         " Visual bell instead of beeping
 set wildignore=*.swp,*.bak,*.pyc,*.class,tmp/**,dist/**,node_modules/**  " wildmenu: ignore these extensions
 set wildmenu                           " Command-line completion in an enhanced mode
+set wildmode=list:longest,list:full
 set shell=bash                         " Required to let zsh know how to run things on command line
 set ttimeoutlen=50                     " Fix delay when escaping from insert with Esc
 set clipboard=unnamed
@@ -90,6 +93,7 @@ set modeline                           " Respect modelines
 set modelines=4
 set diffopt+=vertical
 set title                              " Show the PWD and current file in terminal title
+
 
 if has("autocmd")
   autocmd BufReadPost *
@@ -119,17 +123,11 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
-" Color scheme
-colorscheme github
-highlight NonText guibg=#060606
-highlight Folded  guibg=#0A0A0A guifg=#9090D0
-
 " Leader
 let mapleader=","
 
 " Setup Airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme='papercolor'
 let g:airline_left_sep=''                           " No separator as they seem to look funky
 let g:airline_right_sep=''                          " No separator as they seem to look funky
 let g:airline#extensions#syntastic#enabled = 1      " Do show syntastic warnings in the status line
@@ -152,35 +150,9 @@ let g:ctrlp_custom_ignore = '\v[\/](transpiled)|dist|tmp|node_modules|(\.(swp|gi
 
 " Setup nerdtree
 map <Leader>d :NERDTreeToggle<CR>
-nmap <Leader>nt :NERDTreeFind<CR>
 let g:NERDTreeQuitOnOpen=1
 let g:NERDTreeShowHidden=1
 let g:NERDTreeMinimalUI=1
-
-" Tab completion
-" will insert tab at beginning of line,
-" will use completion if not at beginning
-set wildmode=list:longest,list:full
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
-inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <S-Tab> <c-n>
-
-" Better movement between splits
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-" Create window splits easier.
-nnoremap <silent> vv <C-w>v
-nnoremap <silent> ss <C-w>s
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")

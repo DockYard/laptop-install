@@ -27,8 +27,6 @@
   dt = difftool
 
   l = log --pretty=oneline -n25 --graph --abbrev-commit --date=short
-  ll = log --pretty=format:'%C(yellow)%h%Creset - %s %Cred%d%Creset %Cgreen(%cd)%Creset <%cE>' -n25 --graph --color --abbrev-commit --date=format:'%y-%m-%d %H:%M:%S'
-  ld = log --no-merges --pretty=format:'%C(yellow)%h%Creset %cd %Cgreen(%cr)%Creset | %an | %s' --date=format:'%d-%m-%y %H:%M'
 
   dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 
