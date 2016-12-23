@@ -47,6 +47,16 @@ Press enter to start the installation process, press <CTRL + C> to cancel
 After filling out your name, press `enter` to start installation. During the
 installation it can ask for your sudo password a few times.
 
+### Optional: `macos.sh`
+
+Optionally run the `macos.sh` script. This will do quite a lot of mac os
+configuration. Best to just read the script file if you want to know what it
+exactly does.
+
+```
+./macos.sh
+```
+
 ## What does this script do?
 
 This script sets up some boilerplate dotfiles and installs common tools.
