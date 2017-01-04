@@ -1,5 +1,6 @@
 cask_args appdir: '/Applications'
 
+tap 'homebrew/services'
 tap 'caskroom/cask'
 
 brew 'wget'
