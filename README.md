@@ -8,7 +8,7 @@ This script installs a default development environment
 Clone this repo:
 
 ```
-git clone https://github.com/martndemus/laptop-install.git
+git clone https://github.com/dockyard/laptop-install.git
 cd laptop-install
 ```
 
