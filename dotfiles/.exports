@@ -2,4 +2,6 @@
 export VISUAL=vim
 export EDITOR=$VISUAL
 
+export PATH="$HOME/.yarn/bin:$PATH"
+
 [[ -f ~/.exports.local ]] && source ~/.exports.local
