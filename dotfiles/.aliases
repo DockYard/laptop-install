@@ -50,6 +50,8 @@ alias ets="ember test --server --no-launch"
 alias nom="rm -rf node_modules;npm cache clean; npm i"
 alias yom="rm -rf node_modules;yarn"
 alias bom="rm -rf bower_components;bower cache clean;bower i"
+alias nombom="nom && bom"
+alias yombom="yom && bom"
 
 # Prett print path
 alias path='echo $PATH | tr -s ":" "\n"'
