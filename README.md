@@ -85,6 +85,7 @@ To add your own customizations to gitconfig, create a `.gitconfig.local` file in
 
 The following custom zsh config files are set up (in ~/.oh-my-zsh/custom/):
 
+* `asdf.zsh` sets up asdf manager
 * `aliases.zsh` for command aliases
 * `exports.zsh` for shell exports
 * `plugins.zsh` for zsh plugins

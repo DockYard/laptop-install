@@ -92,6 +92,7 @@ volta install node
 fancy_echo "Installing OH-MY-ZSH"
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" >> out.log 2>&1
 
+copy_zshfile "asdf.zsh"
 copy_zshfile "aliases.zsh"
 copy_zshfile "exports.zsh"
 copy_zshfile "plugins.zsh"
