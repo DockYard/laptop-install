@@ -19,7 +19,6 @@ brew 'watchman'
 brew 'wget'
 brew 'zsh'
 
-cask '1password'
 cask 'google-chrome'
 cask 'iterm2'
 cask 'slack'

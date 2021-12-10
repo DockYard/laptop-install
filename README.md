@@ -117,7 +117,6 @@ following packages:
 
 And the following desktop apps:
 
-* 1Password
 * Google Chrome
 * iTerm2
 * Slack
