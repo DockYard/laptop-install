@@ -18,7 +18,11 @@ fancy_echo "Hello $full_name <$email_address>"
 fancy_echo "Press enter to start the installation process, press <CTRL + C> to cancel"
 read -r
 
-if [ -f ~/.ssh/id_ed25519 ]
+# Use id_ed25519 if it exists,
+# otherwise use id_rsa if it exists,
+# otherwise create and use id_ed25519.
+
+if [ -f ~/.ssh/id_ed25519 ] || [ -f ~/.ssh/id_rsa ]
 then
   fancy_echo "Skipping SSH key generation, you already have one"
 else
@@ -26,7 +30,12 @@ else
   ssh-keygen -q -t ed25519 -C "$email_address" -N "" -f ~/.ssh/id_ed25519
 fi
 
-< ~/.ssh/id_ed25519.pub pbcopy
+if [ -f ~/.ssh/id_ed25519.pub ]
+then
+  < ~/.ssh/id_ed25519.pub pbcopy
+else
+  < ~/.ssh/id_rsa.pub pbcopy
+fi
 fancy_echo "Copyied public key to clipboard, please add it to your Github account."
 
 copy_dotfile() {
