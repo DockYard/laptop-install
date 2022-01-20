@@ -66,7 +66,6 @@ The following things are set up:
 * Installs Brew and common Brew packages
 * Installs Node using [Volta](https://volta.sh/)
 * Installs [OH-MY-ZSH](https://ohmyz.sh/)
-* Changes your default shell to ZSH
 * Copies some configuration files (see below)
 
 ### Dotfiles
@@ -113,7 +112,6 @@ following packages:
 * `volta`
 * `watchman`
 * `wget`
-* `zsh`
 
 And the following desktop apps:
 

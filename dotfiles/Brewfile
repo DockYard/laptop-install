@@ -17,7 +17,6 @@ brew 'vim'
 brew 'volta'
 brew 'watchman'
 brew 'wget'
-brew 'zsh'
 
 cask 'google-chrome'
 cask 'iterm2'
