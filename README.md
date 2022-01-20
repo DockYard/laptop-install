@@ -2,31 +2,30 @@
 
 This script installs a default development environment
 
-
 ## Quickstart
 
 Clone this repo:
 
-```
+```sh
 git clone https://github.com/dockyard/laptop-install.git
 cd laptop-install
 ```
 
 Run the `install.sh` script:
 
-```
+```sh
 ./install.sh
 ```
 
 You will see the following prompt:
 
-```
+```text
 This script will setup your laptop
 
 If you want to reuse your old SSH key, copy your SSH config over before running
 this script
 
-During installation, it will ask for your sudo password a few times
+During installation, it may ask for your sudo password.
 ```
 
 If you have saved your old SSH configuration, now is a good time to copy it to
@@ -34,7 +33,7 @@ your home directory.
 
 It continues by asking your name and email address:
 
-```
+```text
 Before we start we need some basic details of you
 What is your full name? (e.g. Johnny Appleseed): Johnny Appleseed
 What is your email address? (e.g. johnny.appleseed@dockyard.com): johnny.appleseed@dockyard.com
@@ -45,7 +44,7 @@ Press enter to start the installation process, press <CTRL + C> to cancel
 ```
 
 After filling out your name, press `enter` to start installation. During the
-installation it can ask for your sudo password a few times.
+installation it can ask for your sudo password.
 
 ### Optional: `macos.sh`
 
@@ -53,7 +52,7 @@ Optionally run the `macos.sh` script. This will do quite a lot of mac os
 configuration. Best to just read the script file if you want to know what it
 exactly does.
 
-```
+```sh
 ./macos.sh
 ```
 
@@ -63,66 +62,63 @@ This script sets up some boilerplate dotfiles and installs common tools.
 
 The following things are set up:
 
-  * Generates a new SSH key pair if you don't have one yet
-  * Copies the following dotfiles to your homefolder
-  * Creates a `~/Projects` folder
-  * Installs Brew and common Brew packages
-  * Installs OH-MY-ZSH
-  * Installs some common global Node.js packages
-  * Installs the Phoenix Framework
-  * Installs the Vim plugins configured in the `.vimrc` file
-  * Changes your default shell to ZSH
+* Generates a new SSH key pair if you don't have one yet
+* Installs Brew and common Brew packages
+* Installs Node using [Volta](https://volta.sh/)
+* Installs [OH-MY-ZSH](https://ohmyz.sh/)
+* Copies some configuration files (see below)
 
 ### Dotfiles
 
 The following dotfiles are set up:
-  * `.aliases` for command aliases
-  * `.agignore` for folders that the `ag` command can ignore
-  * `.ackrc` for folders that the `ack` command can ignore
-  * `.exports` for exports
-  * `.editorconfig` for editor defaults
-  * `.gitconfig` your default git config, complete with your name and email
-  * `.gitignore` a global ignore file for git
-  * `.tmux.conf` a basic setup for tmux
-  * `.vimrc` a basic Vim setup, including basic Vim plugins
-  * `.zshrc` a basic ZSH setup, including OH-MY-ZSH
 
-If you want to add more aliases, you can add your own `.aliases.local` file to
-your home directory. This will be automatically loaded when your terminal
-starts.
+* `.agignore` for folders that the `ag` command can ignore
+* `.ackrc` for folders that the `ack` command can ignore
+* `.editorconfig` for editor defaults
+* `.gitconfig` your default git config, complete with your name and email
+* `.gitignore` a global ignore file for git
 
-The following `.local` files are possible:
-  * `.aliases.local` for your own aliases
-  * `.exports.local` for your own exports
-  * `.gitconfig.local` for your custom git config
-  * `.vimrc.bundles.local` put your custom Vim plugins in this file (`NeoBundle 'ctrlpvim/ctrlp.vim'`)
-  * `.vimrc.local` for all other Vim customization
-  * `.zshrc.oh-my-zsh.local` for all your OH-MY-ZSH customization, before it is loaded
-  * `.zshrc.local` for all other ZSH customization
+To add your own customizations to gitconfig, create a `.gitconfig.local` file in your home directory.
 
+### ZSH Config Files
+
+The following custom zsh config files are set up (in ~/.oh-my-zsh/custom/):
+
+* `asdf.zsh` sets up asdf manager
+* `aliases.zsh` for command aliases
+* `exports.zsh` for shell exports
+* `plugins.zsh` for zsh plugins
+
+If you want to add more aliases, you can add your own `aliases.local.zsh` file to
+your `~/.oh-my-zsh/custom/` directory. This will be automatically loaded when your terminal
+starts. The filename does not matter. Any `*.zsh` file in this directory will be loaded.
 
 ### Brew
 
 During installation some common Brew packages are installed, it includes the
 following packages:
 
-  * `ack`
-  * `elixir`
-  * `git`
-  * `hub`
-  * `node`
-  * `nvm`
-  * `postgresql`
-  * `redis`
-  * `the_silver_searcher`
-  * `vim`
-  * `watchman`
-  * `yarn`
-  * `zsh`
+* `ack`
+* `asdf`
+* `coreutils`
+* `findutils`
+* `git`
+* `hub`
+* `libyaml`
+* `the_silver_searcher`
+* `tmux`
+* `tree`
+* `vim`
+* `volta`
+* `watchman`
+* `wget`
 
 And the following desktop apps:
 
-  * Google Chrome
-  * ScreenHero
-  * Slack
-  * Visual Studio Code
+* Google Chrome
+* iTerm2
+* Slack
+* Visual Studio Code
+
+Afterwards you may wish to use [asdf](https://asdf-vm.com/) to install additional
+languages that you need, such as ruby, erlang, elixir, java, and others.
