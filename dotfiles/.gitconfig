@@ -134,5 +134,4 @@
   enabled = true
 
 [init]
-	defaultBranch = main
-
+  defaultBranch = main
