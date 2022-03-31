@@ -86,7 +86,9 @@ copy_dotfile "Brewfile"
 if ! command -v brew >/dev/null; then
   fancy_echo "Installing Brew"
   xcode-select --install
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> ~/.zprofile
+  eval $(/opt/homebrew/bin/brew shellenv)
 else
   fancy_echo "Updating Brew ..."
   brew update >> out.log 2>&1
